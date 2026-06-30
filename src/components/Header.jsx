@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { waLink } from "../config.js";
-import { MenuIcon, CloseIcon, WhatsappIcon, WindowIcon } from "./Icons.jsx";
+import { MenuIcon, CloseIcon, WhatsappIcon } from "./Icons.jsx";
 
 const links = [
   { href: "#beneficios", label: "Beneficios" },
@@ -18,11 +18,15 @@ export default function Header() {
         {/* Marca */}
         <a
           href="#inicio"
-          className="group flex items-center gap-2.5 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-terracota focus-visible:ring-offset-2"
+          className="group flex items-center gap-3 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-terracota focus-visible:ring-offset-2"
           aria-label="Ventus — inicio"
         >
-          <span className="grid h-9 w-9 place-items-center rounded-lg bg-olive text-cream transition duration-300 ease-gentle group-hover:bg-olive-600">
-            <WindowIcon className="h-5 w-5" strokeWidth={1.7} />
+          <span className="overflow-hidden rounded-xl shadow-soft transition duration-300 ease-gentle group-hover:scale-105 group-hover:shadow-lift">
+            <img
+              src="/ventus-emblem.png"
+              alt=""
+              className="h-11 w-11 object-cover"
+            />
           </span>
           <span className="font-display text-2xl font-semibold tracking-wide text-cocoa">
             Ventus
@@ -35,7 +39,7 @@ export default function Header() {
             <a
               key={l.href}
               href={l.href}
-              className="relative cursor-pointer text-sm font-semibold text-cocoa/80 transition duration-200 ease-gentle hover:text-terracota focus:outline-none focus-visible:ring-2 focus-visible:ring-terracota focus-visible:ring-offset-2"
+              className="nav-underline cursor-pointer text-sm font-semibold text-cocoa/80 transition duration-200 ease-gentle hover:text-terracota focus:outline-none focus-visible:text-terracota"
             >
               {l.label}
             </a>

@@ -45,7 +45,7 @@ export default function Benefits() {
             return (
               <Reveal key={b.title} delay={i * 90}>
                 <article className="group h-full rounded-3xl border border-cocoa/10 bg-cream p-8 shadow-soft transition duration-300 ease-gentle hover:-translate-y-1.5 hover:border-terracota/30 hover:shadow-lift">
-                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-olive/10 text-olive transition duration-300 ease-gentle group-hover:bg-terracota group-hover:text-cream">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-olive/10 text-olive transition duration-300 ease-gentle group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-terracota group-hover:text-cream">
                     <Icon className="h-7 w-7" />
                   </span>
                   <h3 className="mt-6 text-2xl font-semibold text-cocoa">{b.title}</h3>

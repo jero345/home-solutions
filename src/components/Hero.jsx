@@ -8,7 +8,14 @@ const trust = ["Asesoría sin costo", "Instalación profesional", "Acompañamien
 export default function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden bg-cream">
-      <div className="container-ventus grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-10 lg:py-28">
+      {/* Blobs cálidos en movimiento, muy sutiles */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="absolute -left-24 -top-10 h-80 w-80 rounded-full bg-olive/10 blur-3xl animate-blob" />
+        <div className="absolute -right-16 top-40 h-96 w-96 rounded-full bg-terracota/10 blur-3xl animate-blob-slow" />
+        <div className="absolute bottom-0 left-1/3 h-72 w-72 rounded-full bg-olive/5 blur-3xl animate-float-slow" />
+      </div>
+
+      <div className="container-ventus relative z-10 grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-10 lg:py-28">
         {/* Texto */}
         <div className="lg:col-span-6">
           <Reveal>
@@ -67,17 +74,17 @@ export default function Hero() {
 
         {/* Imagen */}
         <div className="lg:col-span-6">
-          <Reveal delay={200} className="relative">
+          <Reveal variant="scale" delay={200} duration={900} className="relative">
             <Img
               src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80"
               alt="Sala luminosa con grandes ventanales que dejan entrar luz natural suave"
               loading="eager"
               fetchPriority="high"
               className="aspect-[4/5] rounded-[2rem] shadow-lift sm:aspect-[5/4] lg:aspect-[4/5]"
-              imgClassName="hover:scale-[1.03]"
+              imgClassName="animate-kenburns"
             />
             {/* Tarjeta flotante */}
-            <div className="absolute -bottom-5 left-5 right-5 rounded-2xl bg-cream/95 p-5 shadow-soft backdrop-blur sm:left-auto sm:right-6 sm:w-64">
+            <div className="absolute -bottom-5 left-5 right-5 rounded-2xl bg-cream/95 p-5 shadow-soft backdrop-blur animate-float sm:left-auto sm:right-6 sm:w-64">
               <p className="font-display text-3xl font-semibold text-olive">−42 dB</p>
               <p className="mt-1 text-sm leading-snug text-cocoa/70">
                 de reducción de ruido exterior. Tu casa vuelve a sonar a hogar.

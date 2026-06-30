@@ -12,7 +12,7 @@ export default function Self() {
     <section className="bg-sand/60">
       <div className="container-ventus grid items-center gap-12 py-20 lg:grid-cols-2 lg:gap-16 lg:py-28">
         {/* Imagen */}
-        <Reveal className="order-2 lg:order-1">
+        <Reveal variant="left" className="order-2 lg:order-1">
           <Img
             src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1200&q=80"
             alt="Habitación serena con luz natural entrando por la ventana al amanecer"

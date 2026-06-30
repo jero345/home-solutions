@@ -1,6 +1,5 @@
 import { CONTACT, waLink } from "../config.js";
 import {
-  WindowIcon,
   PhoneIcon,
   MailIcon,
   MapPinIcon,
@@ -23,14 +22,19 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Marca */}
           <div className="lg:col-span-2">
-            <a href="#inicio" className="flex items-center gap-2.5" aria-label="Ventus — inicio">
-              <span className="grid h-9 w-9 place-items-center rounded-lg bg-olive text-cream">
-                <WindowIcon className="h-5 w-5" strokeWidth={1.7} />
-              </span>
-              <span className="font-display text-2xl font-semibold tracking-wide">Ventus</span>
+            <a
+              href="#inicio"
+              className="inline-block rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-terracota focus-visible:ring-offset-2 focus-visible:ring-offset-cocoa"
+              aria-label="Ventus — inicio"
+            >
+              <img
+                src="/logo-ventus.png"
+                alt="Ventus — Powered by Home Solutions"
+                className="w-40 rounded-2xl shadow-soft transition duration-300 ease-gentle hover:scale-[1.03] hover:shadow-lift sm:w-44"
+              />
             </a>
-            <p className="mt-4 font-script text-3xl text-terracota">Bienestar que permanece</p>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-cream/70">
+            <p className="mt-5 font-script text-3xl text-terracota">Bienestar que permanece</p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-cream/70">
               Ventanas termoacústicas, cortinas y persianas premium. Silencio, luz
               perfecta y confort térmico para tu hogar en Colombia.
             </p>

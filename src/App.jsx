@@ -1,3 +1,4 @@
+import ScrollProgress from "./components/ScrollProgress.jsx";
 import Header from "./components/Header.jsx";
 import Hero from "./components/Hero.jsx";
 import Self from "./components/Self.jsx";
@@ -7,6 +8,7 @@ import Process from "./components/Process.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import FinalCta from "./components/FinalCta.jsx";
 import Footer from "./components/Footer.jsx";
+import FloatingWhatsApp from "./components/FloatingWhatsApp.jsx";
 
 export default function App() {
   return (
@@ -14,11 +16,12 @@ export default function App() {
       {/* Salto de accesibilidad al contenido */}
       <a
         href="#inicio"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-cocoa focus:px-4 focus:py-2 focus:text-cream"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[70] focus:rounded-lg focus:bg-cocoa focus:px-4 focus:py-2 focus:text-cream"
       >
         Saltar al contenido
       </a>
 
+      <ScrollProgress />
       <Header />
 
       <main>
@@ -33,6 +36,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <FloatingWhatsApp />
     </div>
   );
 }

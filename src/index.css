@@ -44,7 +44,7 @@
   }
 
   .btn-primary {
-    @apply btn bg-terracota px-7 py-3.5 text-cream shadow-soft hover:-translate-y-0.5 hover:bg-terracota-600;
+    @apply btn relative overflow-hidden bg-terracota px-7 py-3.5 text-cream shadow-soft hover:-translate-y-0.5 hover:bg-terracota-600;
   }
 
   .btn-ghost {
@@ -52,7 +52,7 @@
   }
 
   .btn-light {
-    @apply btn bg-cream px-7 py-3.5 text-cocoa shadow-soft hover:-translate-y-0.5 hover:bg-sand;
+    @apply btn relative overflow-hidden bg-cream px-7 py-3.5 text-cocoa shadow-soft hover:-translate-y-0.5 hover:bg-sand;
   }
 
   .field {
@@ -60,7 +60,125 @@
   }
 }
 
-/* Accesibilidad: respetar prefers-reduced-motion */
+/* ── Brillo (sheen) que cruza los botones primarios al hover ────────── */
+.btn-primary::after,
+.btn-light::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 55%;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: translateX(-180%) skewX(-18deg);
+  pointer-events: none;
+}
+.btn-primary:hover::after,
+.btn-light:hover::after {
+  animation: sheen 1.1s ease forwards;
+}
+
+/* ── Subrayado animado para enlaces de navegación ──────────────────── */
+.nav-underline {
+  position: relative;
+}
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-underline:hover::after,
+.nav-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* ── Keyframes ─────────────────────────────────────────────────────── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.09);
+  }
+}
+@keyframes sheen {
+  0% {
+    transform: translateX(-180%) skewX(-18deg);
+  }
+  100% {
+    transform: translateX(320%) skewX(-18deg);
+  }
+}
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(24px, -18px) scale(1.06);
+  }
+  66% {
+    transform: translate(-18px, 16px) scale(0.96);
+  }
+}
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  70% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-slow {
+    animation: float 9s ease-in-out infinite;
+  }
+  .animate-kenburns {
+    animation: kenburns 22s ease-in-out infinite alternate;
+  }
+  .animate-blob {
+    animation: blob 22s ease-in-out infinite;
+  }
+  .animate-blob-slow {
+    animation: blob 30s ease-in-out infinite;
+  }
+  .animate-pulse-ring {
+    animation: pulseRing 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Accesibilidad: respetar prefers-reduced-motion (desactiva toda animación) */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

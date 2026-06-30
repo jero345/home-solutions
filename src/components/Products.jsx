@@ -64,7 +64,7 @@ export default function Products() {
                     imgClassName="group-hover:scale-[1.05]"
                   />
                   <div className="flex flex-1 flex-col p-7">
-                    <span className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-olive/10 text-olive">
+                    <span className="mb-4 grid h-12 w-12 place-items-center rounded-xl bg-olive/10 text-olive transition duration-300 ease-gentle group-hover:scale-110 group-hover:bg-terracota group-hover:text-cream">
                       <Icon className="h-6 w-6" />
                     </span>
                     <h3 className="text-2xl font-semibold text-cocoa">{p.name}</h3>

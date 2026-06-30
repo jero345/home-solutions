@@ -1,11 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 
-// Anima un fade + sube al entrar en viewport. Respeta prefers-reduced-motion:
-// si el usuario lo prefiere, se muestra de inmediato sin animación.
+// Mapeo de variantes → clases de estado inicial (oculto).
+const HIDDEN = {
+  up: "translate-y-8 opacity-0",
+  down: "-translate-y-8 opacity-0",
+  left: "-translate-x-10 opacity-0",
+  right: "translate-x-10 opacity-0",
+  scale: "scale-95 opacity-0",
+  fade: "opacity-0",
+};
+
+const SHOWN = "translate-x-0 translate-y-0 scale-100 opacity-100";
+
+// Anima entrada (fade + desplazamiento/escala) al entrar en viewport.
+// Respeta prefers-reduced-motion: si el usuario lo prefiere, se muestra
+// de inmediato sin animación.
 export default function Reveal({
   children,
   as: Tag = "div",
+  variant = "up",
   delay = 0,
+  duration = 700,
   className = "",
 }) {
   const ref = useRef(null);
@@ -42,9 +57,9 @@ export default function Reveal({
   return (
     <Tag
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-gentle ${
-        shown ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+      style={{ transitionDelay: `${delay}ms`, transitionDuration: `${duration}ms` }}
+      className={`transition-all ease-gentle will-change-transform ${
+        shown ? SHOWN : HIDDEN[variant] || HIDDEN.up
       } ${className}`}
     >
       {children}

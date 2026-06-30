@@ -58,7 +58,7 @@ export default function Process() {
               <Reveal key={s.n} delay={i * 90}>
                 <div className="group h-full rounded-3xl border border-cream/15 bg-cream/5 p-8 transition duration-300 ease-gentle hover:-translate-y-1.5 hover:bg-cream/10">
                   <div className="flex items-center justify-between">
-                    <span className="grid h-12 w-12 place-items-center rounded-xl bg-cream/10 text-cream transition duration-300 ease-gentle group-hover:bg-terracota">
+                    <span className="grid h-12 w-12 place-items-center rounded-xl bg-cream/10 text-cream transition duration-300 ease-gentle group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-terracota">
                       <Icon className="h-6 w-6" />
                     </span>
                     <span className="font-display text-4xl font-semibold text-cream/30">
